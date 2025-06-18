@@ -1,0 +1,140 @@
+<div class="task-detail-container">
+  <div *ngIf="loading" class="loading">
+    <div class="spinner"></div>
+    <p>Loading task...</p>
+  </div>
+
+  <div *ngIf="!loading" class="task-content">
+    <div class="header">
+      <button class="btn btn-secondary" (click)="goBack()">
+        <span class="icon">←</span>
+        Back to Tasks
+      </button>
+      
+      <div class="header-actions" *ngIf="!isNewTask && task">
+        <button class="btn btn-primary" (click)="toggleEditMode()" *ngIf="!isEditMode">
+          <span class="icon">✏️</span>
+          Edit Task
+        </button>
+        <button class="btn btn-danger" (click)="deleteTask()" *ngIf="!isEditMode">
+          <span class="icon">🗑️</span>
+          Delete Task
+        </button>
+      </div>
+    </div>
+
+    <div class="task-card" *ngIf="task || isNewTask">
+      <div class="task-header" *ngIf="!isEditMode && task">
+        <div class="task-status">
+          <span class="status-icon">{{ getStatusIcon(task.status) }}</span>
+          <span class="status-text" [class]="getStatusClass(task.status)">
+            {{ task.status }}
+          </span>
+        </div>
+        <h1 class="task-title">{{ task.name }}</h1>
+      </div>
+
+      <div class="task-form" [formGroup]="taskForm" *ngIf="isEditMode">
+        <h1 class="form-title">{{ isNewTask ? 'Create New Task' : 'Edit Task' }}</h1>
+        
+        <div class="form-group">
+          <label for="name">Task Name *</label>
+          <input 
+            type="text" 
+            id="name" 
+            formControlName="name"
+            class="form-control"
+            [class.invalid]="isFieldInvalid('name')"
+            placeholder="Enter task name">
+          <div class="error-message" *ngIf="isFieldInvalid('name')">
+            {{ getFieldError('name') }}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description *</label>
+          <textarea 
+            id="description" 
+            formControlName="description"
+            class="form-control"
+            [class.invalid]="isFieldInvalid('description')"
+            placeholder="Enter task description"
+            rows="4"></textarea>
+          <div class="error-message" *ngIf="isFieldInvalid('description')">
+            {{ getFieldError('description') }}
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="status">Status *</label>
+            <select 
+              id="status" 
+              formControlName="status"
+              class="form-control"
+              [class.invalid]="isFieldInvalid('status')">
+              <option *ngFor="let status of taskStatuses" [value]="status">
+                {{ status }}
+              </option>
+            </select>
+            <div class="error-message" *ngIf="isFieldInvalid('status')">
+              {{ getFieldError('status') }}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="owner">Owner *</label>
+            <input 
+              type="text" 
+              id="owner" 
+              formControlName="owner"
+              class="form-control"
+              [class.invalid]="isFieldInvalid('owner')"
+              placeholder="Enter task owner">
+            <div class="error-message" *ngIf="isFieldInvalid('owner')">
+              {{ getFieldError('owner') }}
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-secondary" (click)="cancelEdit()">
+            Cancel
+          </button>
+          <button class="btn btn-primary" (click)="saveTask()">
+            {{ isNewTask ? 'Create Task' : 'Save Changes' }}
+          </button>
+        </div>
+      </div>
+
+      <div class="task-details" *ngIf="!isEditMode && task">
+        <div class="detail-section">
+          <h3>Description</h3>
+          <p class="task-description">{{ task.description }}</p>
+        </div>
+
+        <div class="detail-section">
+          <h3>Task Information</h3>
+          <div class="info-grid">
+            <div class="info-item">
+              <span class="label">Owner:</span>
+              <span class="value">{{ task.owner }}</span>
+            </div>
+            <div class="info-item">
+              <span class="label">Created:</span>
+              <span class="value">{{ task.createdAt | date:'medium' }}</span>
+            </div>
+            <div class="info-item">
+              <span class="label">Last Updated:</span>
+              <span class="value">{{ task.updatedAt | date:'medium' }}</span>
+            </div>
+            <div class="info-item">
+              <span class="label">Task ID:</span>
+              <span class="value">{{ task.id }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

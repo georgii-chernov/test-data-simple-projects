@@ -1,0 +1,97 @@
+<div class="task-list-container">
+  <div class="header">
+    <h1>Task Manager</h1>
+    <button class="btn btn-primary" (click)="createNewTask()">
+      <span class="icon">➕</span>
+      New Task
+    </button>
+  </div>
+
+  <div class="filters">
+    <div class="filter-group">
+      <label for="owner-filter">Filter by Owner:</label>
+      <select 
+        id="owner-filter" 
+        [(ngModel)]="selectedOwner" 
+        (change)="onOwnerFilterChange()"
+        class="form-control">
+        <option value="">All Owners</option>
+        <option *ngFor="let owner of owners" [value]="owner">
+          {{ owner }}
+        </option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="search">Search:</label>
+      <input 
+        type="text" 
+        id="search" 
+        [(ngModel)]="searchTerm" 
+        (input)="onSearchChange()"
+        placeholder="Search tasks..."
+        class="form-control">
+    </div>
+
+    <button class="btn btn-secondary" (click)="clearFilters()">
+      Clear Filters
+    </button>
+  </div>
+
+  <div class="task-count">
+    <span>{{ filteredTasks.length }} task{{ filteredTasks.length !== 1 ? 's' : '' }} found</span>
+  </div>
+
+  <div class="tasks-grid">
+    <div 
+      *ngFor="let task of filteredTasks" 
+      class="task-card"
+      [class]="getStatusClass(task.status)">
+      
+      <div class="task-header">
+        <div class="task-status">
+          <span class="status-icon">{{ getStatusIcon(task.status) }}</span>
+          <span class="status-text">{{ task.status }}</span>
+        </div>
+        <div class="task-actions">
+          <button class="btn-icon" (click)="viewTask(task.id)" title="View Task">
+            👁️
+          </button>
+          <button class="btn-icon" (click)="editTask(task.id)" title="Edit Task">
+            ✏️
+          </button>
+          <button class="btn-icon delete" (click)="deleteTask(task.id)" title="Delete Task">
+            🗑️
+          </button>
+        </div>
+      </div>
+
+      <div class="task-content">
+        <h3 class="task-title">{{ task.name }}</h3>
+        <p class="task-description">{{ task.description }}</p>
+        
+        <div class="task-meta">
+          <div class="task-owner">
+            <span class="label">Owner:</span>
+            <span class="value">{{ task.owner }}</span>
+          </div>
+          <div class="task-dates">
+            <span class="label">Created:</span>
+            <span class="value">{{ task.createdAt | date:'short' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="filteredTasks.length === 0" class="no-tasks">
+    <div class="no-tasks-content">
+      <span class="icon">📋</span>
+      <h3>No tasks found</h3>
+      <p>Try adjusting your filters or create a new task.</p>
+      <button class="btn btn-primary" (click)="createNewTask()">
+        Create New Task
+      </button>
+    </div>
+  </div>
+</div> 
