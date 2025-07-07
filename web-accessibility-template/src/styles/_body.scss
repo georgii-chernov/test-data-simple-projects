@@ -1,0 +1,120 @@
+@use "~sass-rem" as rem;
+@import "variables";
+@import "sets";
+
+* {
+  &,
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+html {
+  margin: 0;
+  padding: 0;
+
+  font-size: rem.convert(16px);
+
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  margin-top: 0;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+
+  td {
+    padding: rem.convert(8px 12px);
+    vertical-align: top;
+
+    border-bottom: 1px solid $main-bg-dark;
+  }
+}
+
+input {
+  padding: rem.convert(8px 16px);
+
+  font-size: rem.convert(16px);
+  line-height: 1.5;
+
+  border-radius: rem.convert(0.16px);
+}
+
+.container {
+  @extend %container;
+}
+
+.section {
+  padding-top: rem.convert(48px);
+  padding-bottom: rem.convert(48px);
+
+  &-no-bottom-padding {
+    padding-bottom: 0;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+a,
+button {
+  &:focus {
+    outline: none !important;
+  }
+}
+
+.button {
+  @extend %button;
+
+  &-primary {
+    color: $main-color-light;
+    background: $main-color-interactive;
+
+    border-color: $main-color-interactive;
+
+    &:focus {
+      outline-color: $main-color-interactive;
+    }
+
+    &:hover {
+      color: $main-color-interactive;
+      background: $main-color-light;
+    }
+  }
+
+  &-secondary {
+    color: $main-color-interactive;
+    background: $main-color-light;
+
+    border-color: $main-color-interactive;
+
+    &:focus {
+      outline-color: $main-color-interactive;
+    }
+
+    &:hover {
+      color: $main-color-interactive;
+      background: $main-color-light;
+    }
+  }
+}

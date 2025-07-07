@@ -1,0 +1,20 @@
+# dependencies
+/node_modules
+
+# production
+/dist
+
+# ignore IntelliJ related files
+.idea
+*/.idea/*
+*.iml
+/.classpath
+/.project
+/.settings
+/.vs 
+
+#webstorm
+.idea/
+
+# misc
+.DS_Store

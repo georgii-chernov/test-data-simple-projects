@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+
+<body>
+  <div class="header">
+    <div class="container">
+      <a href="/" class="logo-link" id="logo">
+        <img src="./images/logo.png">
+      </a>
+
+      <div id="navbarMenu" class="navbar">
+        <button class="navbar-mobile-button" data-target="navbarMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="navbar-list">
+          <li class="navbar-list-item">
+            <a href="/" class="navbar-link">Home</a>
+          </li>
+          <li class="navbar-list-item" id="services_sub">
+            <a href="#" class="navbar-link">Services</a>
+            <ul class="sublist" hidden data-panel="services_sub">
+              <li><a href="#">Design</a></li>
+              <li><a href="#">Consult</a></li>
+              <li><a href="#">Engineer</a></li>
+              <li><a href="#">Operate</a></li>
+              <li><a href="#">Optimize</a></li>
+            </ul>
+          </li>
+          <li class="navbar-list-item" id="stories_sub">
+            <a href="#" class="navbar-link">Success stories</a>
+            <ul class="sublist" hidden data-panel="stories_sub">
+              <li><a href="#">Best stories</a></li>
+              <li><a href="#">Others</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="title-wrapper">
+      <div class="container">
+        <div class="title title-1 is-light text-center" id="headingH1">We have web accessibility in mind</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="title title-2 text-center">Would you like to get the latest news?</div>
+        <div class="subtitle text-center">Subscribe to our events, updates and more</div>
+        <div class="field-subscribe">
+          <input class="input inputNotify">
+          <a class="button button-primary notify">Notify Me</a>
+        </div>
+        <div class="message"></div>
+      </div>
+    </div>
+
+    <div class="section is-bg-secondary">
+      <div class="container">
+        <div class="title title-2 text-center" id="headingAboutUs">About Us</div>
+        <div class="subtitle text-center">We of all trades, master of "some"</div>
+        <p>Web developers with more than <b>4 years</b> of well-rounded experience with a degree in the
+          field of
+          <b>Computer Science</b>, extensive knowledge of modern Web techniques and love for <b>Coffee</b>.
+          Looking for an opportunity to work and upgrade, as well as being involved in an organization that
+          believes
+          in gaining a competitive edge and giving back to the community.</p>
+        <div class="title title-3" id="headingOurHistory">Our history</div>
+        <p>Since 1989<sup><a>[1]</a></sup>, we deliver high quality solutions to make your business more accessible.</p>
+        <div class="title title-4" id="heading1989">1989</div>
+        <p>On February 1989, seventeen people met to talk, ski, relax, and try to find common ground.</p>
+        <ul>
+          <li>- We all felt privileged to work with a group of people who held a set of compatible value.</li>
+          <li>- We all want to deliver good products to customers.</li>
+        </ul>
+        <div class="title title-4" id="heading2022">2022</div>
+        <p>Generally we have achieved <a>all our major goals</a>. And we are ready to help you to achieve yours</p>
+        <div class="blockquote">Success usually comes to those who are too busy looking for it. - Henry David Thoreau</div>
+        <p>We believe in investing in people. For 30+ years, the company has been expanding its expertise worldwide through numerous educational activities and materials to help beginners in tech gain in-demand skills.</p>
+        <div class="title title-4" id="heading2023">2023</div>
+        <p>Please take a llok at our plans</p>
+        <table>
+          <tr>
+            <td>Header</td>
+            <td>Header</td>
+          </tr>
+          <tr>
+            <td>cell</td>
+            <td>cell</td>
+          </tr>
+          <tr>
+            <td>cell</td>
+            <td>cell</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="title title-2 text-center" id="headingOurServices">Our services</div>
+        <div class="subtitle text-center">We help our customers to increase value</div>
+
+        <figure>
+          <img src="./images/IMG_5067_72DPI-RGB_.jpg">
+          <img src="./images/business_development.jpg">
+          <figcaption>
+            Figure 1: Some attractive pictures to ensure our customers
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="section section-no-bottom-padding is-bg-interactive">
+      <div class="container">
+        <div class="title title-2 text-center is-light" id="headingOurAchievements">Our achievements</div>
+        <div class="subtitle text-center is-light">We are always ready to tell you about our success</div>
+        <div class="tab-list" id="tab-list">
+          <span class="tab is-active" id="stories">
+            Success stories
+          </span>
+          <span class="tab" id="team">
+            Our team
+          </span>
+          <span class="tab" id="video">
+            Video
+          </span>
+        </div>
+      </div>
+
+      <div class="tab-panel-container is-bg-secondary">
+        <div class="container">
+          <div class="tab-panel is-active" id="panel-1" data-panel="stories">
+            <div class="card-container">
+              <div class="card">
+                <img src="./images/customer-story-1.jpg">
+                <div class="card-content">
+                  <div class="card-title" id="headingBestCustomerStory">Best customer's story</div>
+                  <p>We have achieved customer satisfaction and income increase after having implemented accessibility.</p>
+                  <p>That's a real magic!</p>
+                  <button class="button button-primary modal-button" data-target="modal-image">Learn more</button>
+                </div>
+              </div>
+              <div class="card">
+                <img src="./images/customer-story-2.jpg">
+                <div class="card-content">
+                  <div class="card-title" id="headingOtherBestCustomerStory">Other Best customer's story.</div>
+                  <p>We were not so sure in success but we have had lots of new customers after implementing accessibility.</p>
+                  <p>We will recommend Best Company to our friends!</p>
+                  <span class="button button-primary modal-button" data-target="modal-card">Learn more</span>
+                </div>
+              </div>
+            </div>
+        </div>
+
+          <div class="tab-panel" id="panel-2" hidden data-panel="team">
+            <div class="columns medias">
+              <div class="column">
+                <i class="fab fa-empire fa-4x"></i>
+                <div class="content">
+                  <div class="title title-3" id="headingSolutionArchitect">Solution architect</div>
+                  <p>Please read about our team happiness</p>
+                </div>
+              </div>
+              <div class="column">
+                <i class="fab fa-github-alt fa-4x"></i>
+                <div class="content">
+                  <div class="title title-3" id="headingBusinessAnalyst">Business Analyst</div>
+                  <p>Please read about successful implementation of AI based tools in Business Analysts daily routine</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="panel-3" hidden data-panel="video">
+            <div class="title title-3 text-center" id="headingInspiringVideo">Inspiring video</div>
+            <div class="embed-container image">
+              <iframe src="https://player.vimeo.com/video/261794608" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="title title-2 text-center" id="headingUpcomingEvents">Upcoming events</div>
+        <div class="subtitle is-5 text-center">Outcoming dates for the best options</div>
+
+        <div class="tile is-ancestor">
+          <div class="tile is-parent">
+            <div class="tile is-child box">
+              <div class="image">
+                <img src="./images/access.jpg" width="350" height="250">
+              </div>
+              <p class="title" id="headingLosAngeles">Accessibility event in Los Angeles</p>
+              <p class="subtitle">Fri 27 Nov 2023</p>
+              <a class="button">Buy Tickets</a>
+            </div>
+          </div>
+          <div class="tile is-parent">
+            <div class="tile is-child box">
+              <div class="image">
+                <img src="./images/images.jpg" width="350" height="250">
+              </div>
+              <p class="title" id="headingParis">Accessibility event in Paris</p>
+              <p class="subtitle">Fri 27 Nov 2023</p>
+              <a class="button">Buy Tickets</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section is-bg-light">
+      <div class="container">
+        <div class="title title-2 text-center" id="headingContactUs">Contact us</div>
+        <div class="subtitle text-center">Don't hesitate, ask anything</div>
+
+        <form class="contact-form">
+          <div class="field">
+            <label class="label">Name</label>
+            <input class="input" type="text" placeholder="Text input">
+          </div>
+
+          <div class="field">
+            <label class="label">Username</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input is-success" type="text">
+              <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-check"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
+              <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+              <span class="icon is-small is-right">
+              <i class="fas fa-exclamation-triangle"></i>
+            </span>
+            </div>
+            <p class="help is-danger">This email is invalid</p>
+          </div>
+
+          <div class="field">
+            <label class="label">Subject</label>
+            <div class="control">
+              <div class="select">
+                <select>
+                  <option>Select dropdown</option>
+                  <option>With options</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Message</label>
+            <div class="control">
+              <textarea class="textarea" placeholder="Textarea"></textarea>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="control">
+              <label class="form-control">
+                <input type="checkbox">
+                I agree to the <a>terms and conditions</a>
+              </label>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="control">
+              <label class="form-control">
+                <input type="radio" name="question">
+                Yes
+              </label>
+              <label class="form-control">
+                <input type="radio" name="question">
+                No
+              </label>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button class="button button-primary">Submit</button>
+            <button class="button button-secondary">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="container">
+      <div class="footer-nav">
+        <ul class="footer-list">
+          <li class="footer-list-item">
+            <div class="title-medium" id="headingNews"><b>News</b></div>
+            <ul>
+              <li><a class="third-party" href="https://www.w3.org/TR/WCAG22/" target="_blank">Latest changes in specification</a></li>
+              <li><a href="#">Our new courses and trainings</a></li>
+            </ul>
+          </li>
+          <li class="footer-list-item">
+            <div class="title-medium" id="headingHelp"><b>Help</b></div>
+            <ul>
+              <li><a class="third-party" href="https://www.w3.org/WAI/ARIA/apg/patterns/" target="_blank">Useful links</a></li>
+              <li><a href="#">How to find us</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-content">
+        <div class="social">
+          <a><i class="fab fa-github-alt fa-2x"></i></a>
+          <a><i class="fab fa-youtube fa-2x"></i></a>
+        </div>
+        <p>The source code is licensed <a class="third-party" href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT</a>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-card" class="modal hidden">
+    <div class="modal-content">
+      <button class="modal-close" data-target="modal-card"></button>
+      <div class="modal-image">
+        <img src="./images/plane.jpg">
+      </div>
+      <div class="content">
+        <div class="title">Best airways</div>
+        <div class="subtitle">Our way to success</div>
+        <p>At the beginning we were a small company with two planes and no customers</p>
+        <p>After we implemented accessibility features everything changed</p>
+        <a>#responsive</a>
+        <br>
+        <time datetime="2018-02-02">12:45 AM - 20 June 2018</time>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-image" class="modal hidden">
+    <div class="modal-content is-huge is-image">
+      <button class="modal-close" data-target="modal-image"></button>
+      <img src="./images/single_image_modal.jpg">
+    </div>
+  </div>
+
+  <script async src="bundle.js"></script>
+</body>
+</html>
