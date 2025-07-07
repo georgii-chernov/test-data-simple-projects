@@ -1,0 +1,277 @@
+@use "~sass-rem" as rem;
+@import "variables";
+@import "sets";
+
+.main {
+// Common classes  
+.is-bg-light {
+  background: $main-bg-light;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.is-light {
+  color: $main-color-light;
+}
+
+.is-bg-secondary {
+  background: $secondary-bg;
+}
+
+.is-bg-interactive {
+  background: $main-color-interactive;
+}
+
+.title {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+
+  font-weight: 500;
+
+  &-medium {
+    margin: rem.convert(0 0 16px);
+
+    font-size: rem.convert(32px);
+  }
+
+  &-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 30vh;
+
+    background: $main-bg-dark;
+  }
+
+  &-1 {
+    font-size: rem.convert(64px);
+  }
+
+  &-2 {
+    font-size: rem.convert(40px);
+  }
+
+  &-3 {
+    font-size: rem.convert(32px);
+  }
+
+  &-4 {
+    font-size: rem.convert(24px);
+  }
+}
+
+.subtitle {
+  margin-bottom: rem.convert(20px);
+
+  font-size: rem.convert(20px);
+}
+
+// Notify me block
+.field {
+  &-subscribe {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: rem.convert(19px);
+
+    padding: rem.convert(32px);
+
+    border-radius: rem.convert(4.8px);
+    background: $main-bg;
+
+    .input {
+      flex-grow: 1;
+      width: rem.convert(320px);
+      max-width: 100%;
+    }
+  }
+}
+
+.input {
+  border-color: $main-bg;
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, .1);
+
+  color: $main-color;
+  background-color: $main-color-light;
+}
+
+.message {
+  color: darkGreen;
+  display: inline-block;
+}
+
+// About us block
+.blockquote {
+  margin-bottom: rem.convert(32px);
+  padding: rem.convert(20px 24px);
+
+  background-color: $main-bg-light;
+
+  border-left: 5px solid $main-bg;
+}
+}
+
+// Our services block
+figure {
+text-align: center;
+
+  img {
+    width: 45%;
+  }
+}
+
+// Tabs
+.tab {
+  padding: rem.convert(12px);
+
+  font-weight: 700;
+  font-size: rem.convert(16px);
+  color: $main-color-light;
+  background: transparent;
+
+  border: 1px solid $main-bg-dark;
+  border-bottom: 0;
+  border-top-left-radius: rem.convert(4.8px);
+  border-top-right-radius: rem.convert(4.8px);
+
+  cursor: pointer;
+
+  &-list {
+    position: relative;
+    bottom: -2px;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  &.is-active {
+    color: $main-color;
+    background: $secondary-bg;
+  }
+
+  &-panel {
+    &-container {
+      padding-top: rem.convert(48px);
+      padding-bottom: rem.convert(48px);
+
+      border: 2px solid $main-bg-dark;
+    }
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+
+  @media screen and (min-width: 768px) {
+    width: 48%;
+  }
+
+  &-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  &-content {
+    flex-grow: 1;
+    padding: rem.convert(24px);
+
+    background: $main-color-light;
+  }
+
+  &-title {
+    margin: 0 0 rem.convert(16px);
+
+    font-size: rem.convert(19px);
+    font-weight: 700;
+  }
+}
+
+.video {
+  display: block;
+  margin: 0 auto;
+}
+
+.embed-container {
+  position: relative;
+
+  max-width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+
+  overflow: hidden;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+}
+
+// Upcoming events block
+.box.cta {
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+}
+
+.tile.is-ancestor {
+  display: flex;
+  justify-content: space-around;
+}
+
+// Form block
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: rem.convert(640px);
+  margin: 0 auto;
+  padding: rem.convert(16px);
+
+  background: $main-color-light;
+  box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+
+  .field {
+    width: 100%;
+    margin-bottom: rem.convert(16px);
+  }
+
+  input,
+  textarea {
+    width: 100%;
+
+    border: 1px solid $main-bg-dark;
+  }
+
+  .actions {
+    display: flex;
+    gap: rem.convert(16px);
+  }
+}
+
+.form-control {
+  line-height: 1;
+  display: grid;
+  grid-template-columns: rem.convert(40px 100px auto 100px);
+}
