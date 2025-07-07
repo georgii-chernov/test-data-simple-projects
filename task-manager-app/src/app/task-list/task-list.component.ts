@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,21 +12,80 @@ import { TaskService } from '../services/task.service';
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.scss']
 })
-export class TaskListComponent implements OnInit {
+
+export class TaskListComponent implements OnInit, AfterViewInit {
   tasks: Task[] = [];
   filteredTasks: Task[] = [];
   owners: string[] = [];
   selectedOwner: string = '';
   searchTerm: string = '';
 
+  showDeleteModal: boolean = false;
+  taskIdToDelete: string | null = null;
+
+  @ViewChild('deleteModal') deleteModalRef!: ElementRef;
+  @ViewChild('firstModalButton') firstModalButtonRef!: ElementRef;
+  @ViewChild('lastModalButton') lastModalButtonRef!: ElementRef;
+
   constructor(
     private taskService: TaskService,
-    private router: Router
+    private router: Router,
+    private renderer: Renderer2
   ) {}
 
   ngOnInit(): void {
     this.loadTasks();
     this.loadOwners();
+  }
+
+  ngAfterViewInit(): void {
+    // No-op: focus trap is handled when modal opens
+  }
+
+  confirmDeleteTask(taskId: string): void {
+    this.taskIdToDelete = taskId;
+    this.showDeleteModal = true;
+    setTimeout(() => {
+      if (this.firstModalButtonRef) {
+        this.firstModalButtonRef.nativeElement.focus();
+      }
+    }, 0);
+  }
+
+  closeDeleteModal(): void {
+    this.showDeleteModal = false;
+    this.taskIdToDelete = null;
+  }
+
+  onModalKeyDown(event: KeyboardEvent): void {
+    if (event.key === 'Tab') {
+      const first = this.firstModalButtonRef?.nativeElement;
+      const last = this.lastModalButtonRef?.nativeElement;
+      if (!first || !last) return;
+
+      if (event.shiftKey) {
+        // Shift+Tab
+        if (document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        }
+      } else {
+        // Tab
+        if (document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    } else if (event.key === 'Escape') {
+      this.closeDeleteModal();
+    }
+  }
+
+  confirmDelete(): void {
+    if (this.taskIdToDelete) {
+      this.taskService.deleteTask(this.taskIdToDelete);
+    }
+    this.closeDeleteModal();
   }
 
   loadTasks(): void {
@@ -83,11 +142,13 @@ export class TaskListComponent implements OnInit {
     this.router.navigate(['/task', taskId, 'edit']);
   }
 
-  deleteTask(taskId: string): void {
-    if (confirm('Are you sure you want to delete this task?')) {
-      this.taskService.deleteTask(taskId);
-    }
-  }
+  // deleteTask is replaced by confirmDeleteTask and confirmDelete
+
+  // deleteTask(taskId: string): void {
+  //   if (confirm('Are you sure you want to delete this task?')) {
+  //     this.taskService.deleteTask(taskId);
+  //   }
+  // }
 
   createNewTask(): void {
     this.router.navigate(['/task/new']);
@@ -118,4 +179,4 @@ export class TaskListComponent implements OnInit {
         return '📋';
     }
   }
-} 
+}

@@ -10,11 +10,12 @@
   <div class="filters">
     <div class="filter-group">
       <label for="owner-filter">Filter by Owner:</label>
-      <select 
-        id="owner-filter" 
-        [(ngModel)]="selectedOwner" 
+      <select
+        id="owner-filter"
+        [(ngModel)]="selectedOwner"
         (change)="onOwnerFilterChange()"
-        class="form-control">
+        class="form-control"
+      >
         <option value="">All Owners</option>
         <option *ngFor="let owner of owners" [value]="owner">
           {{ owner }}
@@ -24,13 +25,14 @@
 
     <div class="filter-group">
       <label for="search">Search:</label>
-      <input 
-        type="text" 
-        id="search" 
-        [(ngModel)]="searchTerm" 
+      <input
+        type="text"
+        id="search"
+        [(ngModel)]="searchTerm"
         (input)="onSearchChange()"
         placeholder="Search tasks..."
-        class="form-control">
+        class="form-control"
+      />
     </div>
 
     <button class="btn btn-secondary" (click)="clearFilters()">
@@ -39,35 +41,69 @@
   </div>
 
   <div class="task-count">
-    <span>{{ filteredTasks.length }} task{{ filteredTasks.length !== 1 ? 's' : '' }} found</span>
+    <span
+      >{{ filteredTasks.length }} task{{
+        filteredTasks.length !== 1 ? "s" : ""
+      }}
+      found</span
+    >
   </div>
 
   <div class="tasks-grid">
-    <div 
-      *ngFor="let task of filteredTasks" 
+    <div
+      *ngFor="let task of filteredTasks"
       class="task-card"
-      [class]="getStatusClass(task.status)">
-      
+      [class]="getStatusClass(task.status)"
+    >
       <div class="task-header">
-        <div class="task-status">
-        </div>
+        <div class="task-status"></div>
         <div class="task-actions">
-          <button class="btn-icon" (click)="viewTask(task.id)">
-            👁️
-          </button>
-          <button class="btn-icon" (click)="editTask(task.id)">
-            ✏️
-          </button>
-          <button class="btn-icon delete" (click)="deleteTask(task.id)">
+          <button class="btn-icon" (click)="viewTask(task.id)">👁️</button>
+          <button class="btn-icon" (click)="editTask(task.id)">✏️</button>
+          <button class="btn-icon delete" (click)="confirmDeleteTask(task.id)">
             🗑️
           </button>
+        </div>
+
+        <!-- Delete Confirmation Modal -->
+        <div
+          *ngIf="showDeleteModal"
+          #deleteModal
+          class="modal-backdrop"
+          tabindex="-1"
+          (keydown)="onModalKeyDown($event)"
+          aria-modal="true"
+          role="dialog"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <h2 id="modal-title">Delete Task</h2>
+              <p>Are you sure you want to delete this task?</p>
+              <div class="modal-actions">
+                <button
+                  #firstModalButton
+                  class="btn btn-secondary"
+                  (click)="closeDeleteModal()"
+                >
+                  Cancel
+                </button>
+                <button
+                  #lastModalButton
+                  class="btn btn-danger"
+                  (click)="confirmDelete()"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="task-content">
         <h3 class="task-title">{{ task.name }}</h3>
         <p class="task-description">{{ task.description }}</p>
-        
+
         <div class="task-meta">
           <div class="task-owner">
             <span class="label">Owner:</span>
@@ -75,7 +111,7 @@
           </div>
           <div class="task-dates">
             <span class="label">Created:</span>
-            <span class="value">{{ task.createdAt | date:'short' }}</span>
+            <span class="value">{{ task.createdAt | date : "short" }}</span>
           </div>
         </div>
       </div>
@@ -92,4 +128,4 @@
       </button>
     </div>
   </div>
-</div> 
+</div>
