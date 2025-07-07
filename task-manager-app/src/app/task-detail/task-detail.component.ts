@@ -171,4 +171,5 @@ export class TaskDetailComponent implements OnInit {
     }
     return '';
   }
-} 
+}
+

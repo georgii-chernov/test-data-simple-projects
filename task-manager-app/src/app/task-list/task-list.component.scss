@@ -2,7 +2,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .header {
@@ -54,7 +54,7 @@
 
   &:focus {
     outline: none;
-    border-color: #007bff;
+    border-color: #668eea;
     box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
   }
 }
@@ -73,18 +73,18 @@
   text-decoration: none;
 
   &.btn-primary {
-    background: #007bff;
+    background: #668eea;
     color: white;
 
     &:hover {
-      background: #0056b3;
+      background: #668eea;
       transform: translateY(-1px);
     }
   }
 
   &.btn-secondary {
     background: #6c757d;
-    color: white;
+    color: #8c857d;
 
     &:hover {
       background: #545b62;
@@ -121,15 +121,15 @@
   }
 
   &.status-new {
-    border-left: 4px solid #17a2b8;
+    border-left: 8px solid #17a2b8;
   }
 
   &.status-progress {
-    border-left: 4px solid #ffc107;
+    border-left: 8px solid #ffc107;
   }
 
   &.status-done {
-    border-left: 4px solid #28a745;
+    border-left: 8px solid #28a745;
   }
 }
 
@@ -283,4 +283,5 @@
   .task-card {
     padding: 1rem;
   }
-} 
+}
+

@@ -50,17 +50,15 @@
       
       <div class="task-header">
         <div class="task-status">
-          <span class="status-icon">{{ getStatusIcon(task.status) }}</span>
-          <span class="status-text">{{ task.status }}</span>
         </div>
         <div class="task-actions">
-          <button class="btn-icon" (click)="viewTask(task.id)" title="View Task">
+          <button class="btn-icon" (click)="viewTask(task.id)">
             👁️
           </button>
-          <button class="btn-icon" (click)="editTask(task.id)" title="Edit Task">
+          <button class="btn-icon" (click)="editTask(task.id)">
             ✏️
           </button>
-          <button class="btn-icon delete" (click)="deleteTask(task.id)" title="Delete Task">
+          <button class="btn-icon delete" (click)="deleteTask(task.id)">
             🗑️
           </button>
         </div>
