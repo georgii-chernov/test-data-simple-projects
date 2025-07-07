@@ -2,44 +2,6 @@
 
 A modern, responsive task management application built with Angular 17. This application allows users to manage tasks with features like creating, editing, viewing, and deleting tasks, as well as filtering by owner.
 
----
-
-## ⚠️ Intentional Accessibility Issues
-
-This project contains 5 intentional accessibility issues for demonstration or testing purposes. These are:
-
-| Issue # | Description                                      | Example Location         | Why it's a Problem                |
-|---------|--------------------------------------------------|-------------------------|-----------------------------------|
-| 1       | Icon-only buttons lack `aria-label`              | Task list action icons  | Screen readers can't announce action |
-| 2       | Missing `<label>` for form fields                | Task detail form        | Screen readers can't identify field |
-| 3       | Poor color contrast for status badges            | Status badge CSS        | Text unreadable for some users    |
-| 4       | No `alt`/`aria-label` for informative icons      | Status icon in task     | Screen readers miss meaning       |
-| 5       | No keyboard focus indicator on interactive elements | Buttons, links, form fields | Keyboard users can't see which element is focused |
-
-### Details
-
-1. **Missing `aria-label` or `aria-labelledby` on Icon-Only Buttons**
-   - **Where:** Task list action buttons (view, edit, delete)
-   - **Problem:** Screen readers may not announce the purpose of these buttons clearly, making them unusable for non-visual users.
-
-2. **Missing `<label>` for Form Inputs**
-   - **Where:** Task detail form (e.g., task name input)
-   - **Problem:** Screen readers rely on labels to announce the purpose of form fields. Placeholders are not a substitute for labels.
-
-3. **Poor Color Contrast for Status Badges**
-   - **Where:** Status badge CSS (e.g., yellow on white)
-   - **Problem:** Users with low vision or color blindness may not be able to read the status due to insufficient contrast.
-
-4. **No `alt` Text for Informative Icons**
-   - **Where:** Status icon in task list/detail
-   - **Problem:** Screen readers will skip the icon or just read the emoji, not the meaning (e.g., "In Progress").
-
-5. **No Keyboard Focus Indicator on Interactive Elements**
-   - **Where:** Buttons, links, and form fields throughout the app
-   - **Problem:** Users who navigate with a keyboard cannot see which element is currently focused, making navigation difficult or impossible for them.
-
----
-
 ## Features
 
 ### Task Management
